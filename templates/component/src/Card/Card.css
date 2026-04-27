@@ -1,0 +1,32 @@
+.morphix-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+
+.morphix-card__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1e293b;
+  background: #f8fafc;
+}
+
+.morphix-card__body {
+  padding: 20px;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.morphix-card__footer {
+  padding: 12px 20px;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+}

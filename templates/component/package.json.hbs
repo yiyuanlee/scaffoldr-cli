@@ -1,0 +1,52 @@
+{
+  "name": "{{ projectName }}",
+  "version": "1.0.0",
+  "description": "{{ description }}",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./Button": {
+      "import": "./dist/Button/index.mjs",
+      "require": "./dist/Button/index.js",
+      "types": "./dist/Button/index.d.ts"
+    },
+    "./Card": {
+      "import": "./dist/Card/index.mjs",
+      "require": "./dist/Card/index.js",
+      "types": "./dist/Card/index.d.ts"
+    }
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build": "tsc && tsc -p tsconfig.build.json",
+    "build:storybook": "build-storybook -o storybook-static",
+    "test": "jest",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "keywords": ["components", "ui"],
+  "author": "{{ author }}",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/addon-actions": "^7.6.12",
+    "@storybook/addon-essentials": "^7.6.12",
+    "@storybook/react": "^7.6.12",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}

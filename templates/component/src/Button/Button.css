@@ -1,0 +1,33 @@
+.morphix-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.morphix-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.morphix-btn--sm { padding: 6px 12px; font-size: 13px; }
+.morphix-btn--md { padding: 8px 16px; font-size: 14px; }
+.morphix-btn--lg { padding: 12px 24px; font-size: 16px; }
+
+/* Variants */
+.morphix-btn--primary { background: #3b82f6; color: white; }
+.morphix-btn--primary:hover:not(:disabled) { background: #2563eb; }
+
+.morphix-btn--secondary { background: #64748b; color: white; }
+.morphix-btn--secondary:hover:not(:disabled) { background: #475569; }
+
+.morphix-btn--outline { background: transparent; color: #3b82f6; border: 1px solid #3b82f6; }
+.morphix-btn--outline:hover:not(:disabled) { background: #eff6ff; }
+
+.morphix-btn--block { width: 100%; }
