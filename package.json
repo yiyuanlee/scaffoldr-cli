@@ -1,0 +1,38 @@
+{
+  "name": "create-morphix",
+  "version": "1.0.0",
+  "description": "An extensible TypeScript CLI scaffold generator with plugin system and interactive wizard",
+  "main": "dist/index.js",
+  "bin": {
+    "morphix": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "clean": "rmdir /s /q dist 2>nul || true"
+  },
+  "keywords": [
+    "cli",
+    "scaffold",
+    "generator",
+    "typescript",
+    "plugin"
+  ],
+  "author": "Yiyuan Li",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8",
+    "inquirer": "^8.2.5",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
