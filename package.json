@@ -4,7 +4,7 @@
   "description": "An extensible TypeScript CLI scaffold generator with plugin system and interactive wizard",
   "main": "dist/index.js",
   "bin": {
-    "morphix": "./dist/index.js"
+    "scaffoldr": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
