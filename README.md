@@ -1,9 +1,9 @@
-# create-morphix
+# create-scaffoldr
 
 > An extensible TypeScript CLI scaffold generator with plugin system and interactive wizard
 
 ```bash
-npm create morphix@latest my-api-project -- --template api
+npm create scaffoldr@latest my-api-project -- --template api
 ```
 
 ```
@@ -35,8 +35,8 @@ Next steps:
 ### Local development
 
 ```bash
-git clone https://github.com/yiyuanlee/morphix-cli.git
-cd morphix-cli
+git clone https://github.com/yiyuanlee/scaffoldr-cli.git
+cd scaffoldr-cli
 npm install
 npm run build
 node dist/index.js init my-project
@@ -45,27 +45,27 @@ node dist/index.js init my-project
 ### As a global CLI
 
 ```bash
-npm install -g create-morphix
-morphix init my-project
+npm install -g create-scaffoldr
+scaffoldr init my-project
 ```
 
 ---
 
 ## Usage
 
-### `morphix init`
+### `scaffoldr init`
 
 Generate a new project from a template.
 
 ```bash
 # Interactive mode (recommended)
-morphix init my-project
+scaffoldr init my-project
 
 # With explicit template
-morphix init my-project --template api
+scaffoldr init my-project --template api
 
 # Fully non-interactive
-morphix init my-project --yes --template component
+scaffoldr init my-project --yes --template component
 ```
 
 **Available templates:**
@@ -76,24 +76,24 @@ morphix init my-project --yes --template component
 | `library` | TypeScript npm library with Jest testing |
 | `component` | Frontend component library with Storybook |
 
-### `morphix add`
+### `scaffoldr add`
 
 Add a plugin to your project.
 
 ```bash
-morphix add eslint    # Add ESLint configuration
-morphix add jest     # Add Jest testing framework
-morphix add prettier  # Add Prettier code formatter
-morphix add husky     # Add Git hooks with Husky
-morphix add lint-staged # Add pre-commit lint staging
+scaffoldr add eslint    # Add ESLint configuration
+scaffoldr add jest     # Add Jest testing framework
+scaffoldr add prettier  # Add Prettier code formatter
+scaffoldr add husky     # Add Git hooks with Husky
+scaffoldr add lint-staged # Add pre-commit lint staging
 ```
 
-### `morphix list`
+### `scaffoldr list`
 
 Show all available templates and plugins.
 
 ```bash
-morphix list
+scaffoldr list
 ```
 
 ---
@@ -101,12 +101,12 @@ morphix list
 ## Architecture
 
 ```
-morphix-cli/
+scaffoldr-cli/
 ├── src/
 │   ├── index.ts              # CLI entry point (commander.js)
 │   ├── commands/
-│   │   ├── init.ts           # morphix init command
-│   │   └── add.ts            # morphix add command
+│   │   ├── init.ts           # scaffoldr init command
+│   │   └── add.ts            # scaffoldr add command
 │   └── core/
 │       ├── logger.ts         # Styled terminal output
 │       ├── template.ts      # Handlebars template rendering
@@ -121,7 +121,7 @@ morphix-cli/
 
 ### Plugin Protocol
 
-A morphix plugin is any npm package that exports:
+A scaffoldr plugin is any npm package that exports:
 
 ```typescript
 interface Plugin {
@@ -143,12 +143,12 @@ Plugins are discovered from `node_modules/` and loaded via `require()` at runtim
 
 ## Roadmap
 
-- [ ] `morphix add <plugin>` — plugin installation with npm
-- [ ] `morphix remove <plugin>` — uninstall and rollback
+- [ ] `scaffoldr add <plugin>` — plugin installation with npm
+- [ ] `scaffoldr remove <plugin>` — uninstall and rollback
 - [ ] Remote templates via GitHub URL
-- [ ] Template editor: `morphix template init`
-- [ ] `morphix update` — self-update the CLI
-- [ ] Publish to npm as `create-morphix`
+- [ ] Template editor: `scaffoldr template init`
+- [ ] `scaffoldr update` — self-update the CLI
+- [ ] Publish to npm as `create-scaffoldr`
 - [ ] Interactive wizard in non-TTY environments (fallback to prompts)
 
 ---

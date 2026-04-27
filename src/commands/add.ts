@@ -11,7 +11,7 @@ export async function addCommand(plugin: string) {
 
   // Check if we're inside a morphix project
   if (!(await require('fs-extra').pathExists(packageJsonPath))) {
-    logger.error('No project found. Please run this command inside a morphix project.');
+    logger.error('No project found. Please run this command inside a scaffoldr project.');
     process.exit(1);
   }
 

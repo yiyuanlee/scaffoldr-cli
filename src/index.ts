@@ -7,7 +7,7 @@ import { addCommand } from './commands/add';
 import { version } from '../package.json';
 
 program
-  .name('morphix')
+  .name('scaffoldr')
   .description(chalk.cyan('An extensible CLI scaffold generator with plugin system'))
   .version(version);
 
@@ -34,7 +34,7 @@ program
     console.log('  library   → TypeScript library (publish to npm)');
     console.log('  component → Frontend component library\n');
     console.log(chalk.bold('🔌 Available Plugins'));
-    console.log('  (run morphix add <plugin> to install)\n');
+    console.log('  (run scaffoldr add <plugin> to install)\n');
   });
 
 program.parse();
