@@ -4,6 +4,11 @@ import chalk from 'chalk';
  * Styled console logger for CLI output
  */
 export const logger = {
+  debug(msg: string) {
+    if (process.env.DEBUG) {
+      console.log(chalk.gray('[debug]'), msg);
+    }
+  },
   info(msg: string) {
     console.log(chalk.blue('ℹ'), msg);
   },

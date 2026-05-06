@@ -67,7 +67,7 @@ export function registerHelpers(): void {
     return str.replace(/-(\w)/g, (_, c) => c.toUpperCase());
   });
 
-  Handlebars.registerHelper('ifEquals', (a: unknown, b: unknown, opts: Handlebars.HelperOptions) => {
+  Handlebars.registerHelper('ifEquals', function(this: unknown, a: unknown, b: unknown, opts: Handlebars.HelperOptions) {
     return a === b ? opts.fn(this) : opts.inverse(this);
   });
 }

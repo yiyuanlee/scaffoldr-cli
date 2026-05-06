@@ -15,13 +15,12 @@ export async function addCommand(plugin: string) {
     process.exit(1);
   }
 
-  // Check if plugin is a known/built-in plugin
+  // Check if plugin is a known built-in plugin
   if (!BUILT_IN_PLUGINS.includes(plugin)) {
-    const available = await discoverPlugins();
+    // Treat unknown plugins as npm package names — let npm decide if it exists
     logger.warn(`Plugin "${plugin}" is not a known built-in plugin.`);
-    logger.info(`Known plugins: ${available.join(', ')}`);
-    logger.info(`You can also install any npm package directly via: npm install --save-dev ${plugin}`);
-    process.exit(1);
+    logger.info(`Known built-ins: ${BUILT_IN_PLUGINS.join(', ')}`);
+    logger.info(`Any npm package can be installed directly: npm install --save-dev ${plugin}`);
   }
 
   // Check if already installed
@@ -32,14 +31,15 @@ export async function addCommand(plugin: string) {
 
   const ctx: PluginContext = { projectDir, projectName: path.basename(projectDir) };
 
-  // Load plugin for pre/post install hooks
-  const pluginModule = await loadPlugin(plugin);
+  // Try to load plugin for pre/post install hooks
+  const pluginModule = await loadPlugin(plugin, projectDir);
 
   try {
     // Run plugin's install hook if it exists
     if (pluginModule?.install) {
       await pluginModule.install(ctx);
     } else {
+      // Fall back to plain npm install
       await installPlugin(plugin, projectDir);
     }
 

@@ -70,8 +70,8 @@ export async function initCommand(name: string, opts: { template?: string; yes?:
     ]);
 
     context = {
-      projectName: name,
       ...answers,
+      projectName: name,
     };
   }
 
